@@ -32,7 +32,8 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with:
           python-version: ${{ matrix.python }}
-      - run: npm ci --no-audit --no-fund
+      # --ignore-scripts: skips onnxruntime-node's binary download (flaky, and the snapshot server never loads it)
+      - run: npm ci --no-audit --no-fund --ignore-scripts
         working-directory: lacuna
       - run: uv sync --locked
       - run: uv run ruff check .

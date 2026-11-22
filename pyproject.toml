@@ -1,0 +1,61 @@
+[project]
+name = "langchain-lacuna"
+version = "0.1.0"
+description = "LangChain retriever and abstaining LangGraph agent for Lacuna, agent memory with provenance."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Vaibhav Lalwani" }]
+requires-python = ">=3.10"
+keywords = ["langchain", "langgraph", "mcp", "ai-agents", "retrieval", "memory", "rag", "provenance"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Typing :: Typed",
+]
+dependencies = [
+    "langchain-core>=1.0",
+    "langgraph>=1.0",
+    "mcp>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/vaibhav4046/langchain-lacuna"
+Issues = "https://github.com/vaibhav4046/langchain-lacuna/issues"
+Lacuna = "https://github.com/vaibhav4046/lacuna"
+
+[project.optional-dependencies]
+gemini = ["langchain-google-genai>=2.0"]
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.24", "mypy>=1.11", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["langchain_lacuna"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = ["integration: runs Lacuna's own MCP server over its checked-in graph snapshot (needs LACUNA_DIR)"]
+
+[tool.mypy]
+strict = true
+packages = ["langchain_lacuna"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+extend-exclude = ["lacuna"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]

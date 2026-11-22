@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  # The Lacuna commit whose MCP server and graph snapshot the integration test runs against.
+  LACUNA_REF: d11e164c735be3e63d94e00d8fe08db6dd408ebc
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: vaibhav4046/lacuna
+          ref: ${{ env.LACUNA_REF }}
+          path: lacuna
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: npm ci --no-audit --no-fund
+        working-directory: lacuna
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run mypy
+      - name: Unit tests (fake Lacuna, scripted model)
+        run: uv run pytest -v -m "not integration"
+      - name: Integration test (Lacuna's MCP server over its graph snapshot)
+        run: uv run pytest -v -m integration
+        env:
+          LACUNA_DIR: ${{ github.workspace }}/lacuna
+      - name: Example agent (offline, scripted model)
+        run: uv run python examples/abstaining_agent.py
+        env:
+          LACUNA_DIR: ${{ github.workspace }}/lacuna
+      - run: uv build

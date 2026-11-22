@@ -1,7 +1,6 @@
 """End-to-end demo: a LangGraph agent answers from Lacuna with citations, and abstains when it should.
 
-    LACUNA_DIR=/path/to/lacuna python examples/abstaining_agent.py                 # offline, scripted model
-    LACUNA_DIR=/path/to/lacuna python examples/abstaining_agent.py --model gemini  # GOOGLE_API_KEY + [gemini]
+    LACUNA_DIR=/path/to/lacuna python examples/abstaining_agent.py   # offline, scripted model
 
 LACUNA_DIR is a Lacuna checkout with `npm ci` done. The server is Lacuna's own MCP server reading the
 graph snapshot checked into that repository: no database, no token, no network.
@@ -9,11 +8,9 @@ graph snapshot checked into that repository: no database, no token, no network.
 
 from __future__ import annotations
 
-import argparse
 import asyncio
 import os
 
-from langchain_core.language_models import BaseChatModel
 from langchain_core.messages import AIMessage, HumanMessage
 
 from langchain_lacuna import LacunaClient, create_abstaining_agent
@@ -37,24 +34,16 @@ def scripted(lookup: dict[str, str], prose: str) -> ScriptedChatModel:
     return ScriptedChatModel(responses=[plan, AIMessage(prose)] if prose else [plan])
 
 
-def gemini() -> BaseChatModel:
-    from langchain_google_genai import ChatGoogleGenerativeAI  # optional extra
-
-    return ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
-
-
-async def main(model_name: str) -> None:
+async def main() -> None:
     lacuna_dir = os.environ.get("LACUNA_DIR")
     if not lacuna_dir:
         raise SystemExit("Set LACUNA_DIR to a Lacuna checkout with `npm ci` done.")
     async with LacunaClient.snapshot(lacuna_dir) as lacuna:
         for question, lookup, prose in QUESTIONS:
-            model = gemini() if model_name == "gemini" else scripted(lookup, prose)
+            model = scripted(lookup, prose)
             result = await create_abstaining_agent(model, lacuna).ainvoke({"messages": [HumanMessage(question)]})
             print(f"Q: {question}\nA: {result['messages'][-1].text}\n")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--model", choices=["scripted", "gemini"], default="scripted")
-    asyncio.run(main(parser.parse_args().model))
+    asyncio.run(main())

@@ -30,9 +30,6 @@ Homepage = "https://github.com/vaibhav4046/langchain-lacuna"
 Issues = "https://github.com/vaibhav4046/langchain-lacuna/issues"
 Lacuna = "https://github.com/vaibhav4046/lacuna"
 
-[project.optional-dependencies]
-gemini = ["langchain-google-genai>=2.0"]
-
 [dependency-groups]
 dev = ["pytest>=8", "pytest-asyncio>=0.24", "mypy>=1.11", "ruff>=0.6"]
 

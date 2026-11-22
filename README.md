@@ -74,8 +74,8 @@ Q: When is the migration window for Meridian?
 A: I don't know the migration_window of Meridian: nothing in the record ever states it.
 ```
 
-With a real model: `pip install "langchain-lacuna[gemini]"`, set `GOOGLE_API_KEY`, add
-`--model gemini`. That path has **not** been run (no key was available when this was built).
+The example uses a scripted model. No hosted model has been run against this package; any chat model
+that supports tool calling can be passed to `create_abstaining_agent`, but that is untested here.
 
 ## Use the retriever
 
@@ -140,7 +140,7 @@ pinned Lacuna commit.
 - **Unknown subjects over the snapshot** fail as a read error (`HydraTransportError`) rather than the
   abstention, because the snapshot only holds recorded replies.
 - **Only `lacuna_ask` is wrapped.** `lacuna_explain`, `lacuna_timeline`, `search` and `fetch` are not.
-- **Gemini path not run**, and no hosted model has been run against this agent.
+- **No hosted model has been run** against this agent; the example and tests use a scripted model.
 - Not published to PyPI yet.
 
 ## License

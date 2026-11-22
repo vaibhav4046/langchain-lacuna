@@ -507,84 +507,6 @@ wheels = [
 ]
 
 [[package]]
-name = "filetype"
-version = "1.2.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/bb/29/745f7d30d47fe0f251d3ad3dc2978a23141917661998763bebb6da007eb1/filetype-1.2.0.tar.gz", hash = "sha256:66b56cd6474bf41d8c54660347d37afcc3f7d1970648de365c102ef77548aadb", size = 998020, upload-time = "2022-11-02T17:34:04.141Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/18/79/1b8fa1bb3568781e84c9200f951c735f3f157429f44be0495da55894d620/filetype-1.2.0-py2.py3-none-any.whl", hash = "sha256:7ce71b6880181241cf7ac8697a2f1eb6a8bd9b429f7ad6d27b8db9ba5f1c2d25", size = 19970, upload-time = "2022-11-02T17:34:01.425Z" },
-]
-
-[[package]]
-name = "google-auth"
-version = "2.63.1"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "cryptography" },
-    { name = "pyasn1-modules" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/35/0e/e8125c650f126f8703feabca892277f258af7c761fd93f7d51a404e56d75/google_auth-2.63.1.tar.gz", hash = "sha256:f69f387dba9abe536fec87483a749485f2ef0c81bfa79f609d9873e57054a1a5", size = 409098, upload-time = "2026-11-21T20:36:15.511Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/10/21/868ddea6de119b3e47ee0ae8de70bffabb6c0fe8a6f395ea62bdfb2ec062/google_auth-2.63.1-py3-none-any.whl", hash = "sha256:3c977ca57114a302c2589f3a24be7ca1b6862d30da7619f4230a78809f58a0e9", size = 271264, upload-time = "2026-11-21T20:36:13.886Z" },
-]
-
-[package.optional-dependencies]
-requests = [
-    { name = "requests" },
-]
-
-[[package]]
-name = "google-genai"
-version = "2.33.0"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version < '3.11'",
-]
-dependencies = [
-    { name = "anyio" },
-    { name = "distro" },
-    { name = "google-auth", extra = ["requests"] },
-    { name = "httpx" },
-    { name = "pydantic" },
-    { name = "requests" },
-    { name = "sniffio" },
-    { name = "tenacity" },
-    { name = "typing-extensions" },
-    { name = "websockets", version = "16.1.1", source = { registry = "https://pypi.org/simple" } },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/83/a4/b83b378b4a2fbbfb300c3fde0ff9f443f049c33e2accedf06bc0ad9bf393/google_genai-2.33.0.tar.gz", hash = "sha256:fced7f746da45264b34bcf6044a6fcdb91ebad1825e95c324ee48addb6e557ae", size = 758627, upload-time = "2026-10-23T00:06:28.332Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/ba/3b/9ae8e16c5b2177bfdec1c64769a93eea9093de684e0bbb95c10c77645fef/google_genai-2.33.0-py3-none-any.whl", hash = "sha256:f3f8ab696b35caf95c222e05268740c1ccd6934257890506be73b126150d3b14", size = 1222487, upload-time = "2026-10-23T00:06:26.528Z" },
-]
-
-[[package]]
-name = "google-genai"
-version = "3.6.1"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.15'",
-    "python_full_version == '3.14.*'",
-    "python_full_version >= '3.12' and python_full_version < '3.14' and sys_platform == 'emscripten'",
-    "python_full_version == '3.11.*' or (python_full_version >= '3.12' and python_full_version < '3.14' and sys_platform != 'emscripten')",
-]
-dependencies = [
-    { name = "anyio" },
-    { name = "distro" },
-    { name = "google-auth", extra = ["requests"] },
-    { name = "httpx2", version = "2.16.2", source = { registry = "https://pypi.org/simple" } },
-    { name = "pydantic" },
-    { name = "requests" },
-    { name = "sniffio" },
-    { name = "tenacity" },
-    { name = "typing-extensions" },
-    { name = "websockets", version = "17.4", source = { registry = "https://pypi.org/simple" } },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/0f/15/ecebc770eb7edec0e588498d6b872aff6091ce1af1a9c503bd70b5a1ea7a/google_genai-3.6.1.tar.gz", hash = "sha256:dfd4120a15ba5aff6a3de8a85d76e1d5d0af65c70a54c459b1c5e76f503e46e7", size = 885277, upload-time = "2026-11-18T22:18:48.819Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/c0/1a/576adc030b48c7491b33ab94b96521151ef5b956552c0057628ef39c69bb/google_genai-3.6.1-py3-none-any.whl", hash = "sha256:4b35064da644f61d7e5f6c0e9406bf63b945e7e96b4af18cadb3371cbc3acf74", size = 1472097, upload-time = "2026-11-18T22:18:46.803Z" },
-]
-
-[[package]]
 name = "h11"
 version = "0.16.0"
 source = { registry = "https://pypi.org/simple" }
@@ -848,45 +770,6 @@ wheels = [
 ]
 
 [[package]]
-name = "langchain-google-genai"
-version = "4.4.3"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version < '3.11'",
-]
-dependencies = [
-    { name = "filetype" },
-    { name = "google-genai", version = "2.33.0", source = { registry = "https://pypi.org/simple" } },
-    { name = "langchain-core", version = "1.7.7", source = { registry = "https://pypi.org/simple" } },
-    { name = "pydantic" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/2a/fb/2e54776985a875277d24280c7241d65ab6307fdf1be8465fe0500879a32b/langchain_google_genai-4.4.3.tar.gz", hash = "sha256:171ca3a9a7707359def977004b99a84a963193e70e8b2c420ad2109e02ddc8ae", size = 393905, upload-time = "2026-11-04T19:09:27.166Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/63/2b/4dfadaecae860de0bc06b01bdbde09f4c462cf2542bac3d63974e5215507/langchain_google_genai-4.4.3-py3-none-any.whl", hash = "sha256:a3906f1813aee36e9e67e384b6d7bf6cacd6cd44610beef35ec1ae4fb23dd2a2", size = 82444, upload-time = "2026-11-04T19:09:25.822Z" },
-]
-
-[[package]]
-name = "langchain-google-genai"
-version = "4.5.2"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.15'",
-    "python_full_version == '3.14.*'",
-    "python_full_version >= '3.12' and python_full_version < '3.14' and sys_platform == 'emscripten'",
-    "python_full_version == '3.11.*' or (python_full_version >= '3.12' and python_full_version < '3.14' and sys_platform != 'emscripten')",
-]
-dependencies = [
-    { name = "filetype" },
-    { name = "google-genai", version = "3.6.1", source = { registry = "https://pypi.org/simple" } },
-    { name = "langchain-core", version = "1.8.4", source = { registry = "https://pypi.org/simple" } },
-    { name = "pydantic" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/8b/e1/50e3293479a3f217a0fa8fa85717b9ed9ca860a32e8cf57d8868156ae7a1/langchain_google_genai-4.5.2.tar.gz", hash = "sha256:e098d1d52fe6107e7230316da1cf2caed55a52344c4f5351ade6a8b08de5d190", size = 375141, upload-time = "2026-11-19T23:11:04.937Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/0b/b5/a8892d7ce65e1a74a2b7b10c4e40c6b1a41e590d4564d5d852caaaf3a3b4/langchain_google_genai-4.5.2-py3-none-any.whl", hash = "sha256:8e7ab6d8fc0799ea25d845fd717fec1a80cfcb24f95e16b9799cb58c171ec152", size = 91354, upload-time = "2026-11-19T23:11:03.789Z" },
-]
-
-[[package]]
 name = "langchain-lacuna"
 version = "0.1.0"
 source = { editable = "." }
@@ -895,12 +778,6 @@ dependencies = [
     { name = "langchain-core", version = "1.8.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "langgraph" },
     { name = "mcp" },
-]
-
-[package.optional-dependencies]
-gemini = [
-    { name = "langchain-google-genai", version = "4.4.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "langchain-google-genai", version = "4.5.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
 ]
 
 [package.dev-dependencies]
@@ -914,11 +791,9 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "langchain-core", specifier = ">=1.0" },
-    { name = "langchain-google-genai", marker = "extra == 'gemini'", specifier = ">=2.0" },
     { name = "langgraph", specifier = ">=1.0" },
     { name = "mcp", specifier = ">=2.0" },
 ]
-provides-extras = ["gemini"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -1539,27 +1414,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/bf/db/7fc19e6f2dc92a966727031389fc2e08b558f0f25eb7403c1119ad4713cd/pluggy-1.7.0.tar.gz", hash = "sha256:d1eaa46ebb595891b860ab086b4d09c8588af65ebd4361b8e8f4bb8920b90ba8", size = 123304, upload-time = "2026-10-15T09:50:58.343Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/40/9e/2b38731e0fc536806f16490e1a12d7f0dc2a1235aa8cc07bcc75416a7daa/pluggy-1.7.0-py3-none-any.whl", hash = "sha256:7dd7b0d8832ba3cb632c306926ded123429211b83641b35dc5c41ad2d34f9bec", size = 27082, upload-time = "2026-10-15T09:50:56.808Z" },
-]
-
-[[package]]
-name = "pyasn1"
-version = "0.6.5"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/88/7e/3c0da41061a2021cac7cd524fd57092adbe5b515e8bf9005702e366802e2/pyasn1-0.6.5.tar.gz", hash = "sha256:6b11616a6bcf3a40e635f082bb232fa57b5e0dd7f517bd7ddd69ec3794508a47", size = 155152, upload-time = "2026-10-27T06:32:49.125Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/19/1f/3eefd5c84c35cae44549ce1c7f7e58f7945b34f5a6bce07a135438522073/pyasn1-0.6.5-py3-none-any.whl", hash = "sha256:4017b0fce125096b8573b39c989fdb1a4b19cf761e683398184550fea0e66587", size = 84807, upload-time = "2026-10-27T06:32:48.045Z" },
-]
-
-[[package]]
-name = "pyasn1-modules"
-version = "0.4.2"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "pyasn1" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/e9/e6/78ebbb10a8c8e4b61a59249394a4a594c1a7af95593dc933a349c8d00964/pyasn1_modules-0.4.2.tar.gz", hash = "sha256:677091de870a80aae844b1ca6134f54652fa2c8c5a52aa396440ac3106e941e6", size = 307892, upload-time = "2025-03-28T02:41:22.17Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/47/8d/d529b5d697919ba8c11ad626e835d4039be708a35b0d22de83a269a6682c/pyasn1_modules-0.4.2-py3-none-any.whl", hash = "sha256:29253a9207ce32b64c3ac6600edc75368f98473906e8fd1043bd6b5b1de2c14a", size = 181259, upload-time = "2025-03-28T02:41:19.028Z" },
 ]
 
 [[package]]
